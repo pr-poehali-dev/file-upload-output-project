@@ -98,6 +98,7 @@
   body {
     @apply text-foreground;
     font-family: "Golos Text", sans-serif;
+    font-size: 16px;
     background: radial-gradient(
       ellipse 80% 60% at 0% 0%,
       #0d2b0d 0%,
@@ -105,6 +106,13 @@
       #020202 100%
     );
     min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Unbounded", sans-serif;
+    letter-spacing: -0.03em;
   }
 }
 

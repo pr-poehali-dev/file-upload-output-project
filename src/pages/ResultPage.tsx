@@ -81,15 +81,15 @@ export default function ResultPage() {
         </button>
 
         <div className="mb-10">
-          <div className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-green-700 mb-5 font-medium">
-            <span className="w-6 h-px bg-green-900" />
+          <div className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase text-green-700 mb-6 font-medium" style={{ fontFamily: "'Unbounded', sans-serif" }}>
+            <span className="w-8 h-px bg-green-900" />
             Результат
-            <span className="w-6 h-px bg-green-900" />
+            <span className="w-8 h-px bg-green-900" />
           </div>
-          <h1 className="text-3xl font-semibold leading-tight tracking-tight text-green-100">
+          <h1 className="text-4xl font-bold leading-[1.15] text-green-100">
             {converted ? "Готово к скачиванию" : "Ваши файлы"}
           </h1>
-          <p className="text-green-700 mt-2 text-[15px]">
+          <p className="text-green-600 mt-4 text-base">
             {converted
               ? `Конвертировано в формат ${targetFormat}`
               : "Выберите формат для конвертации или скачайте как есть"}

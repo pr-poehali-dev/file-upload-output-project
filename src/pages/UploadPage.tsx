@@ -70,7 +70,7 @@ function FileDropZone({
             <Icon name="FileCheck" size={22} className="text-green-400" />
           </div>
           <div className="text-center">
-            <p className="font-medium text-[15px] leading-snug text-green-100">{file.name}</p>
+            <p className="font-medium text-base leading-snug text-green-100">{file.name}</p>
             <p className="text-sm text-green-600 mt-1">{file.size}</p>
           </div>
           <span className="text-xs text-green-800 mt-1">нажмите чтобы заменить</span>
@@ -81,7 +81,7 @@ function FileDropZone({
             <Icon name="Upload" size={20} className="text-green-700 group-hover:text-green-500 transition-colors" />
           </div>
           <div className="text-center">
-            <p className="font-medium text-[15px] text-green-200">Файл {index}</p>
+            <p className="font-semibold text-base text-green-200">Файл {index}</p>
             <p className="text-sm text-green-700 mt-1">{label}</p>
           </div>
           <span className="text-xs text-green-900">перетащите или нажмите</span>
@@ -117,15 +117,15 @@ export default function UploadPage() {
       <div className="w-full max-w-xl animate-fade-in">
 
         <div className="mb-14 text-center">
-          <div className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-green-700 mb-5 font-medium">
-            <span className="w-6 h-px bg-green-900" />
+          <div className="inline-flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase text-green-700 mb-6 font-medium" style={{ fontFamily: "'Unbounded', sans-serif" }}>
+            <span className="w-8 h-px bg-green-900" />
             Конвертер файлов
-            <span className="w-6 h-px bg-green-900" />
+            <span className="w-8 h-px bg-green-900" />
           </div>
-          <h1 className="text-3xl font-semibold leading-tight tracking-tight text-green-100">
+          <h1 className="text-4xl font-bold leading-[1.15] text-green-100">
             Загрузите файлы
           </h1>
-          <p className="text-green-700 mt-3 text-[15px] leading-relaxed">
+          <p className="text-green-600 mt-4 text-base leading-relaxed">
             Один или два файла — преобразуем в нужный формат
           </p>
         </div>
