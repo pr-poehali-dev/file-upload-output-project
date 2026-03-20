@@ -91,7 +91,7 @@ export default function ResultPage() {
           </h1>
           <p className="text-green-600 mt-4 text-base">
             {converted
-              ? `Конвертировано в формат ${targetFormat}`
+              ? "Файл готов к скачиванию"
               : "Выберите формат для конвертации или скачайте как есть"}
           </p>
         </div>

@@ -184,6 +184,23 @@ export default function UploadPage() {
             </button>
           </div>
         )}
+
+        <div
+          className="mt-10 bg-black/30 rounded-2xl border border-green-900/40 p-6 animate-fade-in"
+          style={{ backdropFilter: "blur(8px)", animationDelay: "260ms" }}
+        >
+          <p className="text-sm font-medium text-green-600 mb-4">Поддерживаемые форматы</p>
+          <div className="flex flex-wrap gap-2">
+            {["PDF", "DOCX", "TXT", "PNG", "JPG", "CSV", "JSON", "XML"].map((fmt) => (
+              <span
+                key={fmt}
+                className="px-4 py-2 rounded-xl text-sm font-medium bg-green-950/40 text-green-600 border border-green-900/40"
+              >
+                {fmt}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
