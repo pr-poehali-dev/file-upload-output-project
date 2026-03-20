@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 40 20% 97%;
-    --foreground: 20 10% 10%;
+    --background: 0 0% 5%;
+    --foreground: 120 60% 80%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 8%;
+    --card-foreground: 120 60% 80%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 120 60% 80%;
 
-    --primary: 20 10% 10%;
-    --primary-foreground: 40 20% 97%;
+    --primary: 130 70% 45%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 120 50% 70%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 120 20% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 120 60% 70%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 120 60% 80%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 120 15% 15%;
+    --input: 120 15% 15%;
+    --ring: 130 70% 45%;
 
     --radius: 0.5rem;
 
@@ -96,8 +96,15 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: "Golos Text", sans-serif;
+    background: radial-gradient(
+      ellipse 80% 60% at 0% 0%,
+      #0d2b0d 0%,
+      #050f05 50%,
+      #020202 100%
+    );
+    min-height: 100vh;
   }
 }
 
@@ -123,10 +130,38 @@
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 .animate-fade-in {
   animation: fade-in 0.4s ease both;
 }
 
 .animate-scale-in {
   animation: scale-in 0.3s ease both;
+}
+
+.green-glow {
+  box-shadow:
+    0 0 24px rgba(74, 222, 128, 0.08),
+    0 0 1px rgba(74, 222, 128, 0.25);
+}
+
+.green-glow-btn {
+  box-shadow:
+    0 0 20px rgba(74, 222, 128, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.green-glow-btn:hover {
+  box-shadow:
+    0 0 36px rgba(74, 222, 128, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }

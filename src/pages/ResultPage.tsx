@@ -15,16 +15,16 @@ function getExtension(name: string): string {
 
 function FileCard({ file, label }: { file: FileInfo; label: string }) {
   return (
-    <div className="bg-white rounded-2xl p-6 border border-foreground/8 flex items-center gap-5">
-      <div className="w-11 h-11 rounded-xl bg-foreground/5 flex items-center justify-center flex-shrink-0">
-        <Icon name="File" size={20} className="text-foreground/50" />
+    <div className="bg-black/30 rounded-2xl p-6 border border-green-900/40 flex items-center gap-5 green-glow" style={{ backdropFilter: "blur(8px)" }}>
+      <div className="w-11 h-11 rounded-xl bg-green-950/60 border border-green-800/30 flex items-center justify-center flex-shrink-0">
+        <Icon name="File" size={20} className="text-green-500" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-xs text-foreground/35 mb-1 font-medium tracking-wide uppercase">{label}</p>
-        <p className="font-medium text-[14px] truncate leading-snug">{file.name}</p>
-        <p className="text-xs text-foreground/35 mt-0.5">{file.size}</p>
+        <p className="text-xs text-green-700 mb-1 font-medium tracking-wide uppercase">{label}</p>
+        <p className="font-medium text-[14px] truncate leading-snug text-green-100">{file.name}</p>
+        <p className="text-xs text-green-700 mt-0.5">{file.size}</p>
       </div>
-      <span className="text-xs font-semibold tracking-wider text-foreground/30 bg-foreground/5 px-2 py-1 rounded-lg">
+      <span className="text-xs font-semibold tracking-wider text-green-600 bg-green-950/60 border border-green-900/50 px-2 py-1 rounded-lg">
         {getExtension(file.name)}
       </span>
     </div>
@@ -44,13 +44,13 @@ export default function ResultPage() {
 
   if (!state || files.length === 0) {
     return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6">
+      <div className="min-h-screen flex flex-col items-center justify-center px-6">
         <div className="text-center animate-fade-in">
-          <Icon name="FileX" size={40} className="text-foreground/20 mx-auto mb-4" />
-          <p className="text-foreground/40 mb-6">Файлы не найдены</p>
+          <Icon name="FileX" size={40} className="text-green-900 mx-auto mb-4" />
+          <p className="text-green-700 mb-6">Файлы не найдены</p>
           <button
             onClick={() => navigate("/")}
-            className="text-sm text-foreground/50 hover:text-foreground transition-colors underline underline-offset-4"
+            className="text-sm text-green-600 hover:text-green-400 transition-colors underline underline-offset-4"
           >
             Вернуться к загрузке
           </button>
@@ -69,27 +69,27 @@ export default function ResultPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6 py-16">
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 py-16">
       <div className="w-full max-w-xl animate-fade-in">
 
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-sm text-foreground/35 hover:text-foreground/60 transition-colors mb-12 group"
+          className="flex items-center gap-2 text-sm text-green-800 hover:text-green-500 transition-colors mb-12 group"
         >
           <Icon name="ArrowLeft" size={15} className="group-hover:-translate-x-0.5 transition-transform" />
           Загрузить другие файлы
         </button>
 
         <div className="mb-10">
-          <div className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-foreground/30 mb-5 font-medium">
-            <span className="w-6 h-px bg-foreground/20" />
+          <div className="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-green-700 mb-5 font-medium">
+            <span className="w-6 h-px bg-green-900" />
             Результат
-            <span className="w-6 h-px bg-foreground/20" />
+            <span className="w-6 h-px bg-green-900" />
           </div>
-          <h1 className="text-3xl font-semibold leading-tight tracking-tight">
+          <h1 className="text-3xl font-semibold leading-tight tracking-tight text-green-100">
             {converted ? "Готово к скачиванию" : "Ваши файлы"}
           </h1>
-          <p className="text-foreground/40 mt-2 text-[15px]">
+          <p className="text-green-700 mt-2 text-[15px]">
             {converted
               ? `Конвертировано в формат ${targetFormat}`
               : "Выберите формат для конвертации или скачайте как есть"}
@@ -110,8 +110,11 @@ export default function ResultPage() {
         </div>
 
         {!converted && (
-          <div className="bg-white rounded-2xl border border-foreground/8 p-6 mb-6 animate-fade-in" style={{ animationDelay: "140ms" }}>
-            <p className="text-sm font-medium text-foreground/60 mb-4">Конвертировать в формат</p>
+          <div
+            className="bg-black/30 rounded-2xl border border-green-900/40 p-6 mb-6 animate-fade-in"
+            style={{ backdropFilter: "blur(8px)", animationDelay: "140ms" }}
+          >
+            <p className="text-sm font-medium text-green-600 mb-4">Конвертировать в формат</p>
             <div className="flex flex-wrap gap-2 mb-6">
               {FORMAT_OPTIONS.map((fmt) => (
                 <button
@@ -120,8 +123,8 @@ export default function ResultPage() {
                   className={`
                     px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200
                     ${targetFormat === fmt
-                      ? "bg-foreground text-background"
-                      : "bg-foreground/5 text-foreground/50 hover:bg-foreground/10 hover:text-foreground/70"
+                      ? "bg-green-500 text-black green-glow-btn"
+                      : "bg-green-950/40 text-green-600 border border-green-900/40 hover:border-green-700/60 hover:text-green-400"
                     }
                   `}
                 >
@@ -135,8 +138,8 @@ export default function ResultPage() {
               className={`
                 w-full py-3.5 rounded-xl font-medium text-[15px] transition-all duration-300
                 ${targetFormat && !loading
-                  ? "bg-foreground text-background hover:opacity-90"
-                  : "bg-foreground/8 text-foreground/25 cursor-not-allowed"
+                  ? "bg-green-500 text-black hover:bg-green-400 green-glow-btn"
+                  : "bg-green-950/40 text-green-800 cursor-not-allowed border border-green-900/30"
                 }
               `}
             >
@@ -152,16 +155,19 @@ export default function ResultPage() {
 
         {converted && (
           <div className="animate-scale-in">
-            <div className="bg-foreground rounded-2xl p-6 mb-4 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-background/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="CheckCircle" size={20} className="text-background" />
+            <div
+              className="bg-green-500/10 border border-green-500/30 rounded-2xl p-6 mb-4 flex items-center gap-4"
+              style={{ backdropFilter: "blur(8px)" }}
+            >
+              <div className="w-10 h-10 rounded-xl bg-green-500/20 border border-green-500/30 flex items-center justify-center flex-shrink-0">
+                <Icon name="CheckCircle" size={20} className="text-green-400" />
               </div>
               <div className="flex-1">
-                <p className="text-background font-medium text-[15px]">Файл готов</p>
-                <p className="text-background/50 text-sm mt-0.5">Конвертирован в {targetFormat}</p>
+                <p className="text-green-200 font-medium text-[15px]">Файл готов</p>
+                <p className="text-green-600 text-sm mt-0.5">Конвертирован в {targetFormat}</p>
               </div>
             </div>
-            <button className="w-full py-4 rounded-2xl bg-white border border-foreground/12 font-medium text-[15px] text-foreground hover:bg-foreground/4 transition-colors flex items-center justify-center gap-2">
+            <button className="w-full py-4 rounded-2xl bg-green-500 text-black font-medium text-[15px] hover:bg-green-400 transition-colors green-glow-btn flex items-center justify-center gap-2">
               <Icon name="Download" size={18} />
               Скачать результат
             </button>
@@ -170,7 +176,7 @@ export default function ResultPage() {
 
         {!converted && (
           <div className="animate-fade-in" style={{ animationDelay: "180ms" }}>
-            <button className="w-full py-4 rounded-2xl bg-white border border-foreground/12 font-medium text-[15px] text-foreground hover:bg-foreground/4 transition-colors flex items-center justify-center gap-2">
+            <button className="w-full py-4 rounded-2xl bg-transparent border border-green-900/50 font-medium text-[15px] text-green-600 hover:border-green-700/70 hover:text-green-400 transition-all flex items-center justify-center gap-2">
               <Icon name="Download" size={18} />
               Скачать без конвертации
             </button>
